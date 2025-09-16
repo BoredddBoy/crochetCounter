@@ -2,6 +2,7 @@ local font = love.graphics.newFont("assets/font.ttf", 220)
 
 local colors = require'scripts.colors'
 local counter = require'scripts.counter'
+local settings = require'scripts.settings'
 
 local ui = {}
 
@@ -23,6 +24,10 @@ local buttons = {
         hover = false
     }
 }
+
+function ui.load()
+
+end
 
 function ui.update(dt)
     if counter.number >= 100 then
@@ -74,13 +79,14 @@ function ui.draw()
         love.graphics.rectangle('fill', button.shadowX, button.shadowY, button.width, button.height, button.roundness)
         love.graphics.setColor(button_color)
         love.graphics.rectangle('fill', button.x, button.y, button.width, button.height, button.roundness)
+        
 
         love.graphics.setFont(font)
         love.graphics.setColor(colors.white)
         love.graphics.printf(button.text, button.textX, button.textY, button.textLimit, 'center', 0, button.textSize)
     end
 
-
+    settings.draw()
 
 end
 
