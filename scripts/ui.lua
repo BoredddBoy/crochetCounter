@@ -48,6 +48,8 @@ function ui.update(dt)
             button.hover = false
         end
     end
+
+    settings.update()
 end
 
 function love.mousepressed(x, y, button, istouch, presses)
